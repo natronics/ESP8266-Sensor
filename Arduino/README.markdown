@@ -11,8 +11,8 @@ Copy this directory to your `Sketches` folder, and rename to "`ESP8266_Sensor`" 
     $ ln -s path_to_this_folder path_to_sketches/ESP8266_Sensor
 
 
-### Edit `environment.h`
+### Edit Environment Details
 
-Copy the file `environment.h.dist' to just `environment.h` and edit the file, filling out the WiFi connection details and the name or IP Address of the place you'll be pushing code to (where the server part of this project is deployed)
+Make a copy of the file `environment.h.dist` called `environment.h` and edit it, filling out the WiFi connection details and the name or IP Address of the place you'll be pushing code to (where the server part of this project is deployed)
 
 Now you can build and flash the ESP8266

@@ -8,5 +8,5 @@
 // WiFi AP password
 #define MY_WIFI_PSK "password"
 
-// Server you're pushing data to (possibly the IP of your laptop)
+// Server you're pushing data to (e.g., the IP of your laptop)
 #define MY_SERVER "192.168.1.15"
