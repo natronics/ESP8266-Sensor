@@ -1,10 +1,11 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
+#include "environment.h"
 
 #define ESP8266_LED 5
 
-const char WiFiSSID[] = "WiFi Name";
-const char WiFiPSK[] = "WiFi Password";
+const char WiFiSSID[] = MY_WIFI_SSID;
+const char WiFiPSK[] = MY_WIFI_PSK;
 
 void initHardware();
 void connectWiFi();
@@ -40,7 +41,7 @@ void connectWiFi()
   delay(100);
 
   HTTPClient http;
-  http.begin("servername", 80, "/");
+  http.begin(MY_SERVER, 80, "/");
   
   int httpCode = http.POST("parameter=value&also=another");
   if(httpCode) {

@@ -1,0 +1,12 @@
+/**
+ * Put your home network and other information here:
+ */
+
+// WiFi AP name you're connecting to
+#define MY_WIFI_SSID "ssid"
+
+// WiFi AP password
+#define MY_WIFI_PSK "password"
+
+// Server you're pushing data to (possibly the IP of your laptop)
+#define MY_SERVER "192.168.1.15"
