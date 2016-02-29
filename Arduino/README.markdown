@@ -8,7 +8,7 @@ See [these instructions for installing in your Ardunio environment](https://lear
 
 Copy this directory to your `Sketches` folder, and rename to "`ESP8266_Sensor`" or, even better, use a simlink:
 
-    $ ln -s path_to_this_folder path_to_sketches/ESP8266_Sensor
+    $ ln -s path_to_this_folder/ESP8266_Sensor path_to_sketches/
 
 
 ### Edit Environment Details
