@@ -4,8 +4,8 @@ python:
   - "2.7"
 before_install:
   - wget https://www.arduino.cc/download_handler.php?f=/arduino-1.6.7-linux64.tar.xz
-  - tar xf arduino-1.6.5-linux64.tar.xz
-  - sudo mv arduino-1.6.5 /usr/local/share/arduino
+  - tar xf arduino-1.6.7-linux64.tar.xz
+  - sudo mv arduino-1.6.7 /usr/local/share/arduino
   - sudo ln -s /usr/local/share/arduino/arduino /usr/local/bin/arduino
 install:
   - pip install -r server/requirements.txt
