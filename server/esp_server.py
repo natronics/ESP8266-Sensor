@@ -7,9 +7,9 @@ def index():
     return render_template('base.html')
 
 
-@app.route("/")
+@app.route("/test/")
 def test():
-    return render_template('base.html')
+    return render_template('test.html')
 
 
 if __name__ == "__main__":
