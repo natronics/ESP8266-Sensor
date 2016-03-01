@@ -1,9 +1,19 @@
 var $ = require('jquery');
 
 $(document).ready(function() {
-    $("#testBtn").click(function() {
-        $.post( "/push/", {'key': "Value"}, function(response) {
-            console.log(response);
+
+    $("#testdata").submit(function(event) {
+        event.preventDefault();
+
+        // Send the data using post
+        var posting = $.post('/push/', {sensor: $('#sensor').val()});
+
+        // Result:
+        posting.done(function(data) {
+            console.log(data);
         });
-    }); 
+        posting.fail(function(data) {
+            console.log("Failure!");
+        });
+    });
 });
