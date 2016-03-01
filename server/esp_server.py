@@ -10,7 +10,7 @@ sensor_data = db.table('sensor')
 
 @app.route("/")
 def index():
-    return render_template('base.html', page_resources=[url_for('static', filename='index.js')])
+    return render_template('home.html', page_resources=[url_for('static', filename='index.js')])
 
 
 @app.route("/test/")
@@ -25,6 +25,12 @@ def push():
     if sensor_value:
         sensor_data.insert({'time': float(time.time()), 'value': sensor_value})
     return json.dumps({'message': "success"}), 200
+
+
+@app.route("/data/")
+def get():
+    data = sensor_data.all()
+    return json.dumps({'message': "success", 'data': data}), 200
 
 
 if __name__ == "__main__":
