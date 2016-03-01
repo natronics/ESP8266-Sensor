@@ -15,4 +15,7 @@ test: pack lint
 
 clean:
 	rm -f static/*.js
-	rm *.pyc
+	rm -f *.pyc
+
+cleandata:
+	rm -f data/*.json

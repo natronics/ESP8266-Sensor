@@ -1,6 +1,11 @@
 from flask import Flask, render_template, request, url_for
+from tinydb import TinyDB
+import time
 import json
+
 app = Flask(__name__)
+db = TinyDB('./data/database.json')
+sensor_data = db.table('sensor')
 
 
 @app.route("/")
@@ -16,7 +21,9 @@ def test():
 @app.route("/push/", methods=['POST'])
 def push():
     data = request.form
-    print data
+    sensor_value = data.get('sensor', None)
+    if sensor_value:
+        sensor_data.insert({'time': float(time.time()), 'value': sensor_value})
     return json.dumps({'message': "success"}), 200
 
 
