@@ -10,5 +10,5 @@ lint:
 pack:
 	./node_modules/.bin/webpack
 
-test: lint
+test: pack lint
 	python esp_server_test.py
