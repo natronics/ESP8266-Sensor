@@ -1,2 +1,33 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 echo "deploying server....."
+
+# edit this with were you want the code to be unwrapped
+WEB_DIR=/web/ESP8266-Sensor
+VIRENV=/home/debian/.virtualenvs/ESP8266-Sensor/
+unset GIT_DIR
+
+# Shut down old service
+echo "Stopping previous instance... "
+sudo supervisorctl stop esp8266-uwsgi
+virtualenv --clear $VIRENV
+
+echo "Unpacking... "
+mv $WEB_DIR/server/data/database.json /tmp/esp_database.json
+rm -rf $WEB_DIR
+git clone $(pwd) $WEB_DIR
+mv /tmp/esp_database.json $WEB_DIR/server/data/database.json
+
+cd $WEB_DIR;
+git checkout --force
+#git submodule update --init --recursive
+
+echo "Installing... "
+cd server
+$VIRENV/bin/pip install requests -r requirements.txt
+npm install
+make pack
+
+echo "Restarting service... "
+sudo supervisorctl start esp8266-uwsgi
+
+echo "Done!"
