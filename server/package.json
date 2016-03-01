@@ -1,0 +1,15 @@
+{
+  "name": "ESP8266-Sensor-server",
+  "version": "0.0.1",
+  "description": "Front end JavaScript for the simple data server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nathan Bergey",
+  "license": "GPLv3",
+  "dependencies": {
+    "jquery": "^2.2.1",
+    "webpack": "^1.12.14"
+  }
+}

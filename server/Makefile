@@ -1,11 +1,14 @@
 all: demo
 
-demo:
+demo: pack
 	python esp_server.py
 
 lint:
 	flake8 esp_server.py
 	flake8 esp_server_test.py
+
+pack:
+	./node_modules/.bin/webpack
 
 test: lint
 	python esp_server_test.py
