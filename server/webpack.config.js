@@ -1,7 +1,15 @@
+var webpack = require('webpack');
+
+var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
+
 module.exports = {
-    entry:  './src/js/',
+    entry: {
+        index: './src/js/index.js',
+        testpage: './src/js/testpage.js'
+    },
     output: {
         path:     'static',
-        filename: 'bundle.js',
+        filename: '[name].js',
     },
+    plugins: [commonsPlugin]
 };

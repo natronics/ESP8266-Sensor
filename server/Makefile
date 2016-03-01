@@ -12,3 +12,7 @@ pack:
 
 test: pack lint
 	python esp_server_test.py
+
+clean:
+	rm -f static/*.js
+	rm *.pyc

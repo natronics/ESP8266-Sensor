@@ -1,9 +1,17 @@
 <!doctype html>
-<html>
- <head></head>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"><html>
+  <title>Test Page</title>
+  <script src="{{ url_for('static', filename='common.js') }}"></script>
+ </head>
  <body>
   <h1>Page</h1>
   <hr>
   {% block body %}{% endblock %}
+
+  {% for resource in page_resources %}
+    <script src="{{ resource }}"></script>
+  {% endfor %}
  </body>
 </html>
