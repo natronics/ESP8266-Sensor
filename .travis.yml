@@ -14,6 +14,7 @@ install:
   - pip install -r server/requirements.txt
   - arduino --pref "boardsmanager.additional.urls=http://arduino.esp8266.com/stable/package_esp8266com_index.json" --install-boards esp8266:esp8266
   - arduino --pref "boardsmanager.additional.urls="
+  - cp Arduino/ESP8266_Sensor/environment.h.dist Arduino/ESP8266_Sensor/environment.h
 script:
   - cd server; make test; cd ..;
   - cd Arduino; arduino --verbose --verify --board esp8266:esp8266:thing ./ESP8266_Sensor/ESP8266_Sensor.ino
