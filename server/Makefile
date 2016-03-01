@@ -8,7 +8,7 @@ lint:
 	flake8 esp_server_test.py
 
 pack:
-	./node_modules/.bin/webpack
+	./node_modules/.bin/webpack --bail
 
 test: pack lint
 	python esp_server_test.py
