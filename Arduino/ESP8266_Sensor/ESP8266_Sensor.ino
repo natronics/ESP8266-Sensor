@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
 #include "environment.h"
@@ -6,6 +7,8 @@
 
 const char WiFiSSID[] = MY_WIFI_SSID;
 const char WiFiPSK[] = MY_WIFI_PSK;
+int temp = 0;
+char data_payload[256];
 
 void initHardware();
 void connectWiFi();
@@ -40,10 +43,12 @@ void connectWiFi()
   digitalWrite(ESP8266_LED, LOW);
   delay(100);
 
+  temp = analogRead(A0);
+  sprintf(data_payload, "sensor=%d", temp);
   HTTPClient http;
   http.begin(MY_SERVER, MY_SERVER_PORT, "/push/");
   http.addHeader("Content-Type", "application/x-www-form-urlencoded"); 
-  int httpCode = http.POST("sensor=12.5");
+  int httpCode = http.POST(data_payload);
   if(httpCode) {
      if(httpCode == 200) {
        digitalWrite(ESP8266_LED, HIGH);
