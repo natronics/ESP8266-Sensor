@@ -11,19 +11,22 @@ echo "Stopping previous instance... "
 sudo supervisorctl stop esp8266-uwsgi
 virtualenv --clear $VIRENV
 
+echo "Backing up data... "
+cp $WEB_DIR/server/data/database.json /tmp/esp_database.json.backup
+
 echo "Unpacking... "
-mv $WEB_DIR/server/data/database.json /tmp/esp_database.json
 rm -rf $WEB_DIR
 git clone $(pwd) $WEB_DIR
-mv /tmp/esp_database.json $WEB_DIR/server/data/database.json
-
 cd $WEB_DIR;
 git checkout --force
 #git submodule update --init --recursive
 
+echo "Restoring Data... "
+mv /tmp/esp_database.json.backup $WEB_DIR/server/data/database.json
+
 echo "Installing... "
 cd server
-$VIRENV/bin/pip --use-wheel install -r requirements.txt
+$VIRENV/bin/pip install --use-wheel -r requirements.txt
 npm install
 make pack
 
