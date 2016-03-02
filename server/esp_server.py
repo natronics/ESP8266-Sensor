@@ -1,21 +1,46 @@
 from flask import Flask, render_template, request, url_for
 from tinydb import TinyDB
 import time
+import subprocess
 import json
 
 app = Flask(__name__)
 db = TinyDB('./data/database.json')
 sensor_data = db.table('sensor')
+gitversion = "?unknown?"
+runon = "?unknown?"
+try:
+    p = subprocess.Popen(["git", "describe", "--tags", "--always"], stdout=subprocess.PIPE)
+    gitversion = p.communicate()[0]
+except EnvironmentError:
+    print "unable to run git, unknown version"
+try:
+    p = subprocess.Popen(["uname", "-a"], stdout=subprocess.PIPE)
+    runon = p.communicate()[0]
+except EnvironmentError:
+    print "unknown server"
 
 
 @app.route("/")
 def index():
-    return render_template('home.html', page_resources=[url_for('static', filename='index.js')])
+    options = {
+        'page_resources': [url_for('static', filename='index.js')],
+        'pagetitle': "ESP8266 Sensor",
+        'version': gitversion,
+        'server': runon,
+    }
+    return render_template('home.html', **options)
 
 
 @app.route("/test/")
 def test():
-    return render_template('test.html', page_resources=[url_for('static', filename='testpage.js')])
+    options = {
+        'page_resources': [url_for('static', filename='testpage.js')],
+        'pagetitle': "Load Test Data",
+        'version': gitversion,
+        'server': runon,
+    }
+    return render_template('test.html', **options)
 
 
 @app.route("/push/", methods=['POST'])

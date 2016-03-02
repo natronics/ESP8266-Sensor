@@ -11,5 +11,13 @@ module.exports = {
         path:     'static',
         filename: '[name].js',
     },
-    plugins: [commonsPlugin]
+    plugins: [commonsPlugin],
+    module: {
+        loaders: [
+          {
+            test: /\.sass$/,
+            loader: 'style!css!sass?indentedSyntax'
+          }
+        ]
+    }
 };

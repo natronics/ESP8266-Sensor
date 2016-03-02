@@ -1,3 +1,4 @@
+require("../style.sass");
 var $ = require('jquery');
 
 $(document).ready(function() {

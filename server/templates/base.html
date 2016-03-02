@@ -2,14 +2,28 @@
 <html lang="en">
  <head>
   <meta charset="utf-8"><html>
-  <title>Test Page</title>
+  <title>{{ pagetitle }}</title>
   <script src="{{ url_for('static', filename='common.js') }}"></script>
  </head>
  <body>
-  <h1>Page</h1>
-  <hr>
-  {% block body %}{% endblock %}
+  <header>
+   <div class="container">
+    <h1>ESP8266 Sensor</h1>
+   </div>
+  </header>
 
+  <section>
+   {% block body %}{% endblock %}
+  </section>
+
+  <footer>
+   <div class="container">
+    <p>
+      ESP8266 Sensor Python Server. Git version: <code>{{ version }}</code>
+    </p>
+    <p class="server">{{ server }}</p>
+   </div>
+  </footer>
   {% for resource in page_resources %}
     <script src="{{ resource }}"></script>
   {% endfor %}

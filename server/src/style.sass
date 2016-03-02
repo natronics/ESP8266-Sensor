@@ -1,0 +1,33 @@
+@import "~bulma/bulma/utilities/utilities"
+@import "~bulma/bulma/config/variables"
+@import "~bulma/bulma/config/generated-variables"
+@import "~bulma/bulma/base/base"
+@import "~bulma/bulma/elements/elements"
+@import "~bulma/bulma/components/components"
+@import "~bulma/bulma/layout/layout"
+
+$headcolor: #7FC2A8
+
+header
+  @extend .header
+  background: $headcolor
+  border-bottom: 2px solid darken($headcolor, 10%)
+  height: auto
+
+  h1
+    font-size: 2.1em
+    padding-top: 1.0em
+    padding-bottom: 0.3em
+    color: #fff
+
+section
+  @extend .section
+
+footer
+  @extend .footer
+
+.server
+  font-size: 0.8em
+  color: #999
+  margin-top: 1.0em
+  font-family: monospace

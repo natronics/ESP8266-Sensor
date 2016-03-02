@@ -1,9 +1,23 @@
 {% extends "base.html" %}
 {% block body %}
-  <section>
-    <table>
-      <thead><tr><th>Recieve Time</th><th>Sensor Value</th></tr></thead>
-      <tbody id="datatable"></tbody>
-    </table>
-  </section>
+
+<div class="container">
+ <div class="content">
+  <p>
+    Table of recent values from sensor:
+  </p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Recieve Time</th>
+        <th>Raw Sensor Value</th>
+        <th>Computed Value</th>
+      </tr>
+    </thead>
+    <tbody id="datatable"></tbody>
+  </table>
+ </div>
+</div>
+
 {% endblock %}
