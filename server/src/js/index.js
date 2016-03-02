@@ -14,7 +14,7 @@ $(document).ready(function() {
 
     var jqxhr = $.getJSON( "/data/", function() {})
         .done(function(data) {
-            for (var i in data.data) {
+            for (var i in data.data.reverse()) {
                 var line = data.data[i];
 
                 var date = new Date(line.time*1000);
