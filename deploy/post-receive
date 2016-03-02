@@ -23,7 +23,7 @@ git checkout --force
 
 echo "Installing... "
 cd server
-$VIRENV/bin/pip install requests -r requirements.txt
+$VIRENV/bin/pip --use-wheel install -r requirements.txt
 npm install
 make pack
 
