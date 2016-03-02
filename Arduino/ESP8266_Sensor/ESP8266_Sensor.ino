@@ -41,9 +41,9 @@ void connectWiFi()
   delay(100);
 
   HTTPClient http;
-  http.begin(MY_SERVER, 80, "/");
-  
-  int httpCode = http.POST("parameter=value&also=another");
+  http.begin(MY_SERVER, MY_SERVER_PORT, "/push/");
+  http.addHeader("Content-Type", "application/x-www-form-urlencoded"); 
+  int httpCode = http.POST("sensor=12.5");
   if(httpCode) {
      if(httpCode == 200) {
        digitalWrite(ESP8266_LED, HIGH);

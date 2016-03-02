@@ -10,3 +10,4 @@
 
 // Server you're pushing data to (e.g., the IP of your laptop)
 #define MY_SERVER "192.168.1.15"
+#define MY_SERVER_PORT 5000
