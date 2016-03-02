@@ -1,17 +1,19 @@
 @import "~bulma/bulma/utilities/utilities"
 @import "~bulma/bulma/config/variables"
+
+$primary: #7FC2A8
+
 @import "~bulma/bulma/config/generated-variables"
 @import "~bulma/bulma/base/base"
 @import "~bulma/bulma/elements/elements"
 @import "~bulma/bulma/components/components"
 @import "~bulma/bulma/layout/layout"
 
-$headcolor: #7FC2A8
 
 header
   @extend .header
-  background: $headcolor
-  border-bottom: 2px solid darken($headcolor, 10%)
+  background: $primary
+  border-bottom: 2px solid darken($primary, 10%)
   height: auto
 
   h1

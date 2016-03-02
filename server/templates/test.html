@@ -1,12 +1,22 @@
 {% extends "base.html" %}
 {% block body %}
-    <form id="testdata" action="/push/" title="Test Push Data" method="post">
-        <div>
-            <label for="sensor">Sensor Value</label>
-            <input type="text" id="sensor" name="sensor">
-        </div>
-        <div>
-            <input type="submit" id="submitButton"  name="submitButton" value="Push Data">
-        </div>
-    </form>
+<div class="container">
+ <div class="content">
+
+  <p>
+    Enter a test value to push to the database:
+  </p>
+
+  <form id="testdata" action="/push/" title="Test Push Data" method="post">
+   <p class="control">
+    <label class="label" for="sensor">Raw Sensor Value</label>
+    <input class="input" type="text" id="sensor" name="sensor" placeholder="1023">
+   </p>
+   <p class="control">
+    <button type="submit" name="submitButton" value="Push Data" class="button is-primary">Submit</button>
+   </p>
+  </form>
+
+ </div>
+</div>
 {% endblock %}
